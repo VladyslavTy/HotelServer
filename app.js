@@ -21,10 +21,11 @@ app.use((req, res, next) => {
         'Origin, X-Requested-With, Content-Type, Accept'
     );
     if (req.method === 'Options') {
-        res.header('Access-Control-Allow-Methods', 'PUT, POST, DELETE');
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, DELETE, OPTIONS');
         return res.status(200).json({});
     } else { next(); }
 });
+
 app.use(express.json());
 app.use(router);
 
